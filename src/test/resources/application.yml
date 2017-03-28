@@ -1,0 +1,31 @@
+spring:
+  data:
+    cassandra:
+      contact-points: 127.0.0.1
+      keyspace-name: snowball_event
+      
+  jpa:
+    show-sql: true
+    hibernate:
+      naming-strategy: org.hibernate.cfg.DefaultNamingStrategy
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        format_sql: true
+        query.substitutions: true 1, false 0
+        default_batch_fetch_size: 50
+        jdbc.batch_size: 50
+        order_inserts: true
+        max_fetch_depth: 2
+        current_session_context_class: org.springframework.orm.hibernate4.SpringSessionContext
+        connection.zeroDateTimeBehavior: convertToNull
+
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/snowball
+    username: root
+    password: root
+    testWhileIdle: true
+    validationQuery: SELECT 1
+      
