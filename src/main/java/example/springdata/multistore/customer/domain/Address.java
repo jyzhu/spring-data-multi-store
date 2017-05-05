@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2014 the original author or authors.
+ * Copyright 2014 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,14 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package example.springdata.multistore.shop;
+package example.springdata.multistore.customer.domain;
 
-import org.springframework.data.repository.CrudRepository;
+import javax.persistence.Embeddable;
+
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+import org.springframework.data.geo.Point;
 
 /**
- * A repository interface assembling CRUD functionality as well as the API to invoke the methods implemented manually.
+ * A domain object to capture addresses.
  * 
- * @author Thomas Darimont
  * @author Oliver Gierke
  */
-public interface OrderRepository extends CrudRepository<Order, String> {}
+@Getter
+@RequiredArgsConstructor
+@Embeddable
+public class Address {
+
+	private final Point location;
+	private String street;
+	private String zipCode;
+}

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package example.springdata.multistore.context;
+package example.springdata.multistore.web.context;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -28,7 +28,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  * @author Oliver Gierke
  */
 @SpringBootApplication
-@EnableJpaRepositories(basePackages={"example.springdata.multistore.customer"})
-@EnableCassandraRepositories(basePackages="example.springdata.multistore.shop")
-@EntityScan(basePackages = {"example.springdata.multistore.customer", "example.springdata.multistore.shop"})
+@EnableJpaRepositories(basePackages={"example.springdata.multistore.customer.dao"})
+@EnableCassandraRepositories(basePackages="example.springdata.multistore.shop.dao")
+@EntityScan(basePackages = {"example.springdata.multistore.customer.domain", "example.springdata.multistore.shop.domain"})
 public class ApplicationConfiguration {}

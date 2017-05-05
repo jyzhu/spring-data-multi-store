@@ -13,26 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package example.springdata.multistore.customer;
+package example.springdata.multistore.customer.dao;
 
-import javax.persistence.Embeddable;
+import org.springframework.data.repository.CrudRepository;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-
-import org.springframework.data.geo.Point;
+import example.springdata.multistore.customer.domain.Customer;
 
 /**
- * A domain object to capture addresses.
+ * Repository interface to manage {@link Customer} instances.
  * 
  * @author Oliver Gierke
  */
-@Getter
-@RequiredArgsConstructor
-@Embeddable
-public class Address {
-
-	private final Point location;
-	private String street;
-	private String zipCode;
-}
+public interface CustomerRepository extends CrudRepository<Customer, Long> {}

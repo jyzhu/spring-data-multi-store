@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 the original author or authors.
+ * Copyright 2013-2014 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,13 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package example.springdata.multistore.customer;
+package example.springdata.multistore.shop.domain;
 
-import org.springframework.data.repository.CrudRepository;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+
+import org.springframework.data.annotation.PersistenceConstructor;
 
 /**
- * Repository interface to manage {@link Customer} instances.
+ * A line item.
  * 
+ * @author Thomas Darimont
  * @author Oliver Gierke
  */
-public interface CustomerRepository extends CrudRepository<Customer, Long> {}
+@Data
+@RequiredArgsConstructor(onConstructor = @__(@PersistenceConstructor))
+public class LineItem {
+
+	private final String caption;
+	private final double price;
+
+	int quantity = 1;
+
+	public LineItem(String caption, double price, int quantity) {
+
+		this(caption, price);
+		this.quantity = quantity;
+	}
+}

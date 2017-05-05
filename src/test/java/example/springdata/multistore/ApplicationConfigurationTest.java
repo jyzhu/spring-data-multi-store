@@ -25,11 +25,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import example.springdata.multistore.context.ApplicationConfiguration;
-import example.springdata.multistore.customer.Customer;
-import example.springdata.multistore.customer.CustomerRepository;
-import example.springdata.multistore.shop.Order;
-import example.springdata.multistore.shop.OrderRepository;
+import example.springdata.multistore.customer.dao.CustomerRepository;
+import example.springdata.multistore.customer.domain.Customer;
+import example.springdata.multistore.shop.dao.OrderRepository;
+import example.springdata.multistore.shop.domain.Order;
+import example.springdata.multistore.web.context.ApplicationConfiguration;
 
 /**
  * Integration test to check repository interfaces are assigned to the correct store modules.

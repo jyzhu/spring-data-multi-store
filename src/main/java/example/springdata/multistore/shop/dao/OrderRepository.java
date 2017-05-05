@@ -13,31 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package example.springdata.multistore.shop;
+package example.springdata.multistore.shop.dao;
 
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import org.springframework.data.repository.CrudRepository;
 
-import org.springframework.data.annotation.PersistenceConstructor;
+import example.springdata.multistore.shop.domain.Order;
 
 /**
- * A line item.
+ * A repository interface assembling CRUD functionality as well as the API to invoke the methods implemented manually.
  * 
  * @author Thomas Darimont
  * @author Oliver Gierke
  */
-@Data
-@RequiredArgsConstructor(onConstructor = @__(@PersistenceConstructor))
-public class LineItem {
-
-	private final String caption;
-	private final double price;
-
-	int quantity = 1;
-
-	public LineItem(String caption, double price, int quantity) {
-
-		this(caption, price);
-		this.quantity = quantity;
-	}
-}
+public interface OrderRepository extends CrudRepository<Order, String> {}

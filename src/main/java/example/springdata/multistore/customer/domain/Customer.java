@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package example.springdata.multistore.customer;
+package example.springdata.multistore.customer.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
